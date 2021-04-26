@@ -7,9 +7,11 @@ namespace Werknemer
     class Werknemer
     {
         //Database db;
+        FileLogger logger;
         public Werknemer()
         {
             //db = new Database();
+            logger = new FileLogger();
         }
         void Insert()
         {
@@ -21,7 +23,7 @@ namespace Werknemer
             catch (Exception e)
             {
                 //Log error
-                System.IO.File.WriteAllText(@"C:\Error.txt", e.ToString());
+                logger.Log(e.ToString());
             }
         }
         void Delete() { }
